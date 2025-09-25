@@ -6,7 +6,11 @@ export default function ShippingRoute() {
       width: 280, height: 228, padding: 8,
       background: "transparent", margin: "0 auto"
     }}>
+       <h1>✅ ShippingRoute is working</h1>
       <ShippingChart width={280} height={228} />
     </div>
+
+    
   );
 }
+
