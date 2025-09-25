@@ -1,6 +1,9 @@
-// src/routes/EducationRoute.jsx
-import React from "react";
 import EducationChart from "../charts/EducationChart";
+
 export default function EducationRoute() {
-  return <EducationChart width={280} height={228} />;
+  return (
+    <div style={{ width: 280, height: 228, padding: 8, margin: "0 auto", background: "transparent" }}>
+      <EducationChart width={280} height={228} />
+    </div>
+  );
 }

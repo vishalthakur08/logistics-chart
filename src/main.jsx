@@ -1,29 +1,18 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// Route components (your existing files)
 import ShippingRoute from "./routes/ShippingRoute";
 import AviationRoute from "./routes/AviationRoute";
 import DigitalRoute from "./routes/DigitalRoute";
 import EducationRoute from "./routes/EducationRoute";
 import ManpowerRoute from "./routes/ManpowerRoute";
 import AgriRoute from "./routes/AgriRoute";
+import FnbRoute from "./routes/FnbRoute";
 
-
-// Tiny 404 for tidy embeds
 function NotFound() {
   return (
-    <div
-      style={{
-        fontFamily:
-          "Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial",
-        fontSize: 14,
-        color: "#475569",
-        padding: 16,
-        lineHeight: 1.5,
-      }}
-    >
+    <div style={{ fontFamily: "Inter, system-ui", padding: 16, color: "#475569" }}>
       <strong>404</strong> — Chart route not found.
     </div>
   );
@@ -33,33 +22,19 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    {/* Use BrowserRouter for Vite + Vercel SPA rewrites */}
-    <BrowserRouter>
+    {/* HashRouter works everywhere without server rewrites */}
+    <HashRouter>
       <Routes>
-        {/* Default chart on the bare domain */}
-        <Route path="/" element={<ShippingRoute />} />
-
-        {/* Individual chart routes */}
+        <Route path="/" element={<Navigate to="/shipping" replace />} />
         <Route path="/shipping" element={<ShippingRoute />} />
         <Route path="/aviation" element={<AviationRoute />} />
         <Route path="/digital" element={<DigitalRoute />} />
         <Route path="/education" element={<EducationRoute />} />
         <Route path="/manpower" element={<ManpowerRoute />} />
         <Route path="/agri" element={<AgriRoute />} />
-     
-
-        {/* Optional: normalize trailing slashes */}
-        <Route path="/shipping/" element={<Navigate to="/shipping" replace />} />
-        <Route path="/aviation/" element={<Navigate to="/aviation" replace />} />
-        <Route path="/digital/" element={<Navigate to="/digital" replace />} />
-        <Route path="/education/" element={<Navigate to="/education" replace />} />
-        <Route path="/manpower/" element={<Navigate to="/manpower" replace />} />
-        <Route path="/agri/" element={<Navigate to="/agri" replace />} />
-       
-
-        {/* 404 for anything else */}
+        <Route path="/fnb" element={<FnbRoute />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );

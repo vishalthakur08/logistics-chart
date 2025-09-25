@@ -1,6 +1,9 @@
-// src/routes/AgriRoute.jsx
-import React from "react";
-import AgriEfficiencyChart from "../charts/AgriChart";
+import AgriEfficiencyChart from "../charts/AgriEfficiencyChart";
+
 export default function AgriRoute() {
-  return <AgriEfficiencyChart width={280} height={228} />;
+  return (
+    <div style={{ width: 280, height: 228, padding: 8, margin: "0 auto", background: "transparent" }}>
+      <AgriEfficiencyChart width={280} height={228} />
+    </div>
+  );
 }

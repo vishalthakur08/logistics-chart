@@ -1,6 +1,9 @@
-// src/routes/DigitalRoute.jsx
-import React from "react";
-import DigitalPlatformsChart from "../charts/DigitalPlatformsChart"; // your chart component
+import DigitalChart from "../charts/DigitalChart";
+
 export default function DigitalRoute() {
-  return <DigitalPlatformsChart width={280} height={228} />;
+  return (
+    <div style={{ width: 280, height: 228, padding: 8, margin: "0 auto", background: "transparent" }}>
+      <DigitalChart width={280} height={228} />
+    </div>
+  );
 }

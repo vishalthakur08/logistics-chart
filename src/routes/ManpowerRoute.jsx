@@ -1,6 +1,9 @@
-// src/routes/ManpowerRoute.jsx
-import React from "react";
-import ManpowerDistributionChart from "../charts/ManpowerChart";
+import ManpowerChart from "../charts/ManpowerChart";
+
 export default function ManpowerRoute() {
-  return <ManpowerDistributionChart width={280} height={228} />;
+  return (
+    <div style={{ width: 280, height: 228, padding: 8, margin: "0 auto", background: "transparent" }}>
+      <ManpowerChart width={280} height={228} />
+    </div>
+  );
 }
