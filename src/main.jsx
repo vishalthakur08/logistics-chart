@@ -9,7 +9,7 @@ import DigitalRoute from "./routes/DigitalRoute";
 import EducationRoute from "./routes/EducationRoute";
 import ManpowerRoute from "./routes/ManpowerRoute";
 import AgriRoute from "./routes/AgriRoute";
-import FnBRoute from "./routes/FnBRoute";
+//import FnBRoute from "./routes/FnBRoute";
 
 // Tiny 404 for tidy embeds
 function NotFound() {
@@ -46,7 +46,7 @@ root.render(
         <Route path="/education" element={<EducationRoute />} />
         <Route path="/manpower" element={<ManpowerRoute />} />
         <Route path="/agri" element={<AgriRoute />} />
-        <Route path="/fnb" element={<FnBRoute />} />
+        /* <Route path="/fnb" element={<FnBRoute />} /> */
 
         {/* Optional: normalize trailing slashes */}
         <Route path="/shipping/" element={<Navigate to="/shipping" replace />} />
@@ -55,7 +55,7 @@ root.render(
         <Route path="/education/" element={<Navigate to="/education" replace />} />
         <Route path="/manpower/" element={<Navigate to="/manpower" replace />} />
         <Route path="/agri/" element={<Navigate to="/agri" replace />} />
-        <Route path="/fnb/" element={<Navigate to="/fnb" replace />} />
+        /* <Route path="/fnb/" element={<Navigate to="/fnb" replace />} /> */
 
         {/* 404 for anything else */}
         <Route path="*" element={<NotFound />} />
