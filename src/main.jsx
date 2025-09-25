@@ -9,7 +9,7 @@ import DigitalRoute from "./routes/DigitalRoute";
 import EducationRoute from "./routes/EducationRoute";
 import ManpowerRoute from "./routes/ManpowerRoute";
 import AgriRoute from "./routes/AgriRoute";
-import FnBRoute from "./routes/FnBRoute";
+import FnBRoute from "./routes/FnBRoute.jsx";
 
 // Tiny 404 for tidy embeds
 function NotFound() {
