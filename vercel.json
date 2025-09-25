@@ -1,5 +1,4 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }],
     "headers": [
       {
         "source": "/(.*)",
@@ -10,6 +9,12 @@
             "value": "frame-ancestors 'self' *.framer.app *.framer.website *.framerusercontent.com *.framerstatic.com"
           }
         ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/((?!assets|favicon\\.ico|robots\\.txt|manifest\\.webmanifest|.*\\.(png|jpg|jpeg|gif|svg|webp|ico|txt|json|xml)).*)",
+        "destination": "/index.html"
       }
     ]
   }
