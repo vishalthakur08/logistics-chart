@@ -1,25 +1,33 @@
 import "./setup";
 import { Line } from "react-chartjs-2";
+import ChartBox from "./ChartBox";
+import { premiumLineOptions } from "./premiumOptions";
 
-export default function AgriEfficiencyChart({ width = 280, height = 228 }) {
+const BLUE = "#4F6FEA";
+const BLUE_FILL = "rgba(79,111,234,0.12)";
+
+export default function AgriEfficiencyChart({ size = "lg" }) {
   const data = {
     labels: ["2023", "2024", "2025"],
     datasets: [
       {
         label: "Operational Efficiency (%)",
         data: [70, 80, 85],
-        borderColor: "#1d4ed8",
-        backgroundColor: "rgba(29,78,216,0.15)",
-        fill: true,
+        borderColor: BLUE,
+        backgroundColor: BLUE_FILL,
+        borderWidth: 2,
         tension: 0.35,
-        pointRadius: 4,
+        pointRadius: 3,
+        fill: true,
       },
     ],
   };
-  const options = {
-    responsive: false,
-    plugins: { legend: { display: false } },
-    scales: { y: { ticks: { callback: v => `${v}%` }, min: 0, max: 100 } },
-  };
-  return <Line data={data} options={options} width={width} height={height} />;
+
+  return (
+    <ChartBox size={size}>
+      <Line data={data} options={premiumLineOptions({
+        scales: { y: { min: 0, max: 100, ticks: { callback: v => `${v}%` } } }
+      })} />
+    </ChartBox>
+  );
 }
