@@ -16,7 +16,7 @@ const tightY = (vals, pad = 0.12) => {
   return { min: Math.floor(min - p), max: Math.ceil(max + p) };
 };
 
-export default function ShippingChart({ width = 280, height = 228 }) {
+export default function ShippingChart({ width = 300, height = 280 }) {
   const values = [10, 12, 14];
   const { min, max } = tightY(values, 0.18);
 
