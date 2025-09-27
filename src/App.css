@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+/* keep your chart helpers */
+canvas { background: transparent !important; }
+
+.chartBox {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;      /* modern alternative to hidden */
+  box-sizing: border-box;
+}
+.chartBox canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100%;
+  background: transparent !important;
+}
+.chartBox, .chartBox * { background-color: transparent !important; }
