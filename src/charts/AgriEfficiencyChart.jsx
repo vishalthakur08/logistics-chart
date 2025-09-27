@@ -4,7 +4,7 @@ import { premiumOptions, transparentBgPlugin, palette } from "./premiumOptions";
 
 export default function AgriEfficiencyChart({ width = 280, height = 228 }) {
   const data = {
-    labels: ["2023", "2024", "2025"],
+    labels: ["2023", "2024", "2028"],
     datasets: [
       {
         label: "Operational Efficiency",
