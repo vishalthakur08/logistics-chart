@@ -3,7 +3,7 @@ import "chart.js/auto";
 import { Line } from "react-chartjs-2";
 import { premiumOptions, transparentBgPlugin, palette, tightY } from "./premiumOptions";
 
-export default function AgriEfficiencyChart({ width = 280, height = 228 }) {
+export default function AgriEfficiencyChart({ width = 300, height = 280 }) {
   const values = [70, 81];
   const { min, max } = tightY(Math.min(...values), Math.max(...values));
 
