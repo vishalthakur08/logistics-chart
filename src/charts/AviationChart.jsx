@@ -10,7 +10,7 @@ const tightY = (vals, pad = 0.12) => {
   return { min: Math.floor(min - p), max: Math.ceil(max + p) };
 };
 
-export default function AviationChart({ width = 280, height = 228 }) {
+export default function AviationChart({ width = 300, height = 280 }) {
   const values = [3, 6, 9];
   const { min, max } = tightY(values, 0.18);
 

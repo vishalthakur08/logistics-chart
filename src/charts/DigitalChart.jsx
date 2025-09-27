@@ -2,7 +2,7 @@ import "./setup";
 import { Bar } from "react-chartjs-2";
 import { premiumOptions, transparentBgPlugin, palette } from "./premiumOptions";
 
-export default function DigitalChart({ width = 280, height = 228 }) {
+export default function DigitalChart({ width = 300, height = 280 }) {
   const values = [50, 58, 66];
 
   const data = {
