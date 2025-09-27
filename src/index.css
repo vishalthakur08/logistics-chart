@@ -70,15 +70,18 @@ button:focus-visible {
 /* Chart.js container fix — ensures no scrollbars */
 
 
-.chart-wrap {
-  position: relative;
+/* Applies to all charts */
+.chartbox {
   width: 100%;
   height: 100%;
-  overflow: hidden;        /* no scrollbars */
+  overflow: hidden;            /* no scrollbars */
 }
 
-.chart-wrap canvas {
-  width: 100% !important;  /* let Chart.js fill the box */
+/* Make the canvas always fill the wrapper */
+.chartbox canvas {
+  display: block !important;
+  width: 100% !important;
   height: 100% !important;
-  display: block;
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
