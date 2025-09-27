@@ -23,14 +23,14 @@ export const transparentBgPlugin = {
 // --- Reusable premium options (no gridlines, no legend, nice tooltip) ---
 export const premiumOptions = {
   responsive: true,
-  maintainAspectRatio: false,        // critical: removes scrollbars when parent has fixed size
-  layout: { padding: 8 },
+  maintainAspectRatio: false,
+  layout: { padding: { top: 4, right: 6, bottom: 6, left: 6 } },
 
   plugins: {
     legend: { display: false },
     tooltip: {
       enabled: true,
-      backgroundColor: "rgba(17,24,39,.92)", // near-black
+      backgroundColor: "rgba(17,24,39,.92)",
       titleColor: "#fff",
       bodyColor: "#fff",
       displayColors: false,
@@ -39,19 +39,20 @@ export const premiumOptions = {
     }
   },
 
-  // Remove grid lines & keep axes minimal
+  // Clean axes: X only, Y hidden
   scales: {
     x: {
       grid: { display: false, drawBorder: false },
-      ticks: { color: palette.text, maxRotation: 0, autoSkip: true }
-    },
-    y: {
-      grid: { display: false, drawBorder: false },
       ticks: {
         color: palette.text,
-        // Use % for your percentage charts; adjust per chart if needed
-        callback: (v) => `${v}%`
+        maxRotation: 0,
+        autoSkip: true,
+        padding: 4
       }
+    },
+    y: {
+      display: false,                 // <-- hides the y-axis entirely
+      grid: { display: false }
     }
   },
 
