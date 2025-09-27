@@ -1,6 +1,6 @@
 // src/charts/ManpowerChart.jsx
-import "./setup";
-import { Pie } from "react-chartjs-2";
+import "chart.js/auto";
+import { Doughnut } from "react-chartjs-2";
 import { premiumOptions, transparentBgPlugin, palette } from "./premiumOptions";
 
 export default function ManpowerChart({ width = 300, height = 280 }) {
@@ -9,15 +9,9 @@ export default function ManpowerChart({ width = 300, height = 280 }) {
     datasets: [
       {
         data: [30, 20, 15, 35],
-        backgroundColor: [
-          palette.primary,      // blue
-          "#10b981",            // green (you can move these into palette if you want)
-          "#f59e0b",            // amber
-          "#ef4444",            // red
-        ],
+        backgroundColor: ["#4C8DF6", "#10b981", "#f59e0b", "#ef4444"],
         borderWidth: 0,
-        hoverOffset: 8,
-        cutout: "42%",          // donut look → feels more premium
+        hoverOffset: 6,
       },
     ],
   };
@@ -25,6 +19,9 @@ export default function ManpowerChart({ width = 300, height = 280 }) {
   const options = {
     ...premiumOptions,
     maintainAspectRatio: false,
+    cutout: "58%",                  // premium doughnut look
+    scales: {},                     // <-- NO axes at all
+    layout: { padding: 8 },
     plugins: {
       ...premiumOptions.plugins,
       legend: {
@@ -35,13 +32,13 @@ export default function ManpowerChart({ width = 300, height = 280 }) {
           usePointStyle: true,
           pointStyle: "circle",
           boxWidth: 10,
-          padding: 14,
+          padding: 12,
         },
       },
       tooltip: {
         ...premiumOptions.plugins.tooltip,
         callbacks: {
-          label: (ctx) => `${ctx.label}: ${ctx.parsed}%`,
+          label: (ctx) => `${ctx.label}: ${ctx.parsed}`,
         },
       },
     },
@@ -49,7 +46,7 @@ export default function ManpowerChart({ width = 300, height = 280 }) {
 
   return (
     <div className="chartBox" style={{ width, height }}>
-      <Pie data={data} options={options} plugins={[transparentBgPlugin]} />
+      <Doughnut data={data} options={options} plugins={[transparentBgPlugin]} />
     </div>
   );
 }
