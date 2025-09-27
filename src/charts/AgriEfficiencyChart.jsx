@@ -8,7 +8,7 @@ export default function AgriEfficiencyChart({ width = 300, height = 280 }) {
   const { min, max } = tightY(Math.min(...values), Math.max(...values));
 
   const data = {
-    labels: ["2024", "2028"],
+    labels: ["2024", "2025"],
     datasets: [
       {
         label: "Operational Efficiency",
