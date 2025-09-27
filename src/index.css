@@ -7,32 +7,33 @@
 /* Make the page exactly fit the chart component (no 100vh, no flex centering) */
 /* --- EMBED RESET --- */
 html, body, #root {
-  height: auto;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: auto !important;      /* no min-height:100vh */
+  max-width: 100% !important;
+  overflow: hidden !important;  /* <-- prevents any page scrollbars */
+  background: transparent !important;
+  box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  display: block;      /* no more flex centering */
-  min-width: 0;        /* let it shrink inside small iframes */
-  min-height: 0;       /* <-- was 100vh (caused the scroll) */
-  background: transparent;
-}
+/* Canvas baseline + background fixes */
+canvas { display: block; background: transparent !important; }
 
-/* keep your chart helpers */
-canvas { background: transparent !important; }
-
+/* Chart frame fits parent exactly */
 .chartBox {
   width: 100%;
   height: 100%;
-  overflow: hidden;      /* modern alternative to hidden */
+  overflow: clip;                /* or hidden */
   box-sizing: border-box;
 }
 .chartBox canvas {
-  display: block;
   width: 100% !important;
   height: 100% !important;
-  max-width: 100%;
+  display: block;
   background: transparent !important;
 }
 .chartBox, .chartBox * { background-color: transparent !important; }
+
+/* (Optional) also hide scrollbars if the browser still insists */
+body::-webkit-scrollbar { width: 0; height: 0; }

@@ -24,7 +24,7 @@ export const transparentBgPlugin = {
 export const premiumOptions = {
   responsive: true,
   maintainAspectRatio: false,
-  layout: { padding: { top: 4, right: 6, bottom: 6, left: 6 } },
+  layout: { padding: { top: 2, right: 4, bottom: 4, left: 4 } }, // tighter
 
   plugins: {
     legend: { display: false },
@@ -39,19 +39,13 @@ export const premiumOptions = {
     }
   },
 
-  // Clean axes: X only, Y hidden
   scales: {
     x: {
       grid: { display: false, drawBorder: false },
-      ticks: {
-        color: palette.text,
-        maxRotation: 0,
-        autoSkip: true,
-        padding: 4
-      }
+      ticks: { color: palette.text, maxRotation: 0, autoSkip: true, padding: 2 }
     },
     y: {
-      display: false,                 // <-- hides the y-axis entirely
+      display: false,     // hides Y-axis entirely
       grid: { display: false }
     }
   },
