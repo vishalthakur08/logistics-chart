@@ -1,36 +1,64 @@
-const TICK = "#7C8794";
+// src/charts/premiumOptions.js
+import { Chart as ChartJS } from "chart.js";
 
-export const premiumLineOptions = (overrides = {}) => ({
+// --- Soft, premium palette (feel free to tweak) ---
+export const palette = {
+  primary:    "#4C8DF6", // blue
+  primaryFill:"rgba(76,141,246,.16)",
+  text:       "#64748B", // slate-500
+  border:     "rgba(148,163,184,.24)" // slate-300/20
+};
+
+// --- Make the canvas fully transparent (removes black bg) ---
+export const transparentBgPlugin = {
+  id: "transparentBg",
+  beforeDraw(chart) {
+    const {ctx, width, height} = chart;
+    ctx.save();
+    ctx.clearRect(0, 0, width, height);
+    ctx.restore();
+  }
+};
+
+// --- Reusable premium options (no gridlines, no legend, nice tooltip) ---
+export const premiumOptions = {
   responsive: true,
-  maintainAspectRatio: false,
-  devicePixelRatio: 2,
-  animation: { duration: 250 },
-  plugins: { legend: { display: false }, tooltip: { enabled: false } },
-  layout: { padding: 0 },
-  scales: {
-    x: { grid: { display: false }, ticks: { color: TICK, font: { size: 10 }, maxRotation: 0, autoSkip: true } },
-    y: { grid: { display: false, drawBorder: false }, ticks: { color: TICK, font: { size: 10 } } },
+  maintainAspectRatio: false,        // critical: removes scrollbars when parent has fixed size
+  layout: { padding: 8 },
+
+  plugins: {
+    legend: { display: false },
+    tooltip: {
+      enabled: true,
+      backgroundColor: "rgba(17,24,39,.92)", // near-black
+      titleColor: "#fff",
+      bodyColor: "#fff",
+      displayColors: false,
+      padding: 10,
+      cornerRadius: 8
+    }
   },
-  elements: { line: { capBezierPoints: true }, point: { hitRadius: 8 } },
-  ...overrides,
-});
 
-export const premiumBarOptions = (overrides = {}) => ({
-  responsive: true,
-  maintainAspectRatio: false,
-  devicePixelRatio: 2,
-  plugins: { legend: { display: false }, tooltip: { enabled: false } },
+  // Remove grid lines & keep axes minimal
   scales: {
-    x: { grid: { display: false }, ticks: { color: TICK, font: { size: 10 } } },
-    y: { grid: { display: false, drawBorder: false }, ticks: { color: TICK, font: { size: 10 } } },
+    x: {
+      grid: { display: false, drawBorder: false },
+      ticks: { color: palette.text, maxRotation: 0, autoSkip: true }
+    },
+    y: {
+      grid: { display: false, drawBorder: false },
+      ticks: {
+        color: palette.text,
+        // Use % for your percentage charts; adjust per chart if needed
+        callback: (v) => `${v}%`
+      }
+    }
   },
-  ...overrides,
-});
 
-export const premiumPieOptions = (overrides = {}) => ({
-  responsive: true,
-  maintainAspectRatio: false,
-  devicePixelRatio: 2,
-  plugins: { legend: { display: false }, tooltip: { enabled: false } },
-  ...overrides,
-});
+  elements: {
+    point: { radius: 3, hoverRadius: 4, borderWidth: 0, backgroundColor: palette.primary },
+    line:  { borderWidth: 2, tension: 0.35, borderColor: palette.primary }
+  },
+
+  animation: { duration: 450 }
+};
