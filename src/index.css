@@ -22,13 +22,13 @@ body {
 /* keep your chart helpers */
 canvas { background: transparent !important; }
 
-.chartBox {
+.chart-Container {
   width: 100%;
   height: 100%;
   overflow: hidden;      /* modern alternative to hidden */
   box-sizing: border-box;
 }
-.chartBox canvas {
+.chart-Container canvas {
   display: block;
   width: 100% !important;
   height: 100% !important;
