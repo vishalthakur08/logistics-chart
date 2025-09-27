@@ -8,7 +8,7 @@ const BLUE_FILL = "rgba(79,111,234,0.12)";
 
 export default function AgriEfficiencyChart({ size = "lg" }) {
   const data = {
-    labels: ["2023", "2024", "2025"],
+    labels: ["2023555", "2024", "2025"],
     datasets: [
       {
         label: "Operational Efficiency (%)",
